@@ -180,6 +180,57 @@ def set_quality(quality):
         sys.exit(1)
 
 
+
+def set_rgb_node_color(material_name, color):
+    """
+    Find the RGB node in the specified material and set its color.
+    
+    Args:
+    - material_name (str): The name of the material to search within.
+    - color (tuple): A tuple of three floats representing the RGB values (range 0-1).
+    """
+    # Ensure the material exists
+    material = bpy.data.materials.get(material_name)
+    if not material:
+        print(f"Material '{material_name}' not found.")
+        return
+    
+    # Ensure the material uses nodes
+    if not material.use_nodes:
+        print(f"Material '{material_name}' does not use nodes.")
+        return
+    
+    # Get the node tree of the material
+    nodes = material.node_tree.nodes
+    
+    # Search for the RGB node
+    rgb_node = next((node for node in nodes if node.type == 'RGB'), None)
+    if rgb_node:
+        rgb_node.outputs[0].default_value = (*color, 1)  # Set color, keep alpha as 1
+        print(f"RGB node color set to {color} in material '{material_name}'.")
+    else:
+        print(f"No RGB node found in material '{material_name}'.")
+
+def set_background_color(data):
+    # Set the background color of the scene
+    if "backgroundColor" in data:
+        color = data["backgroundColor"]
+        if color == "Black":
+            #set black    
+            set_rgb_node_color("background", (0, 0, 0))
+            print(f"Background color set to {color}.")
+            return
+        elif color == "Green":
+            #set green
+            set_rgb_node_color("background", (0, 1, 0))
+            print("Invalid background color setting.")
+
+        elif color == "White":
+            #set white
+            set_rgb_node_color("background", (1, 1, 1))
+            print("Invalid background color setting.")
+            return
+        
 # Get the latest argument
 latest_argument = sys.argv[-1]
 
@@ -213,6 +264,8 @@ if all(
 
     # set the quality
     set_quality(data["quality"])
+
+    set_background_color(data)
 
     # set render type to mp4
     bpy.context.scene.render.image_settings.file_format = "FFMPEG"

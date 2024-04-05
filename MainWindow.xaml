@@ -114,7 +114,7 @@
                   Margin="5" SelectedIndex="0">
             <ComboBoxItem Content="Black"/>
             <ComboBoxItem Content="White"/>
-            <ComboBoxItem Content="Transparant"/>
+            <ComboBoxItem Content="Green"/>
 
         </ComboBox>
 

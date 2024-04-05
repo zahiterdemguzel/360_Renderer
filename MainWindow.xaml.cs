@@ -132,6 +132,9 @@ namespace Render360Video
             //add selected lighting type from child of lighting grid ( use name)
             args.Add("lighting", GetSelectedLightingType());
 
+            //add background color
+            args.Add("backgroundColor", BackgroundColorCombobox.Text);
+
             //convert  json  to string
             string jsonArgs = JsonConvert.SerializeObject(args);
 
@@ -150,6 +153,10 @@ namespace Render360Video
                 RedirectStandardError = true // Redirects error output
 
             };
+
+            //empty the media element
+            MediaElement.Source = null;
+
 
             Trace.WriteLine("Starting Blender Render Process");
             // Start the process
