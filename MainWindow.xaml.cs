@@ -104,6 +104,8 @@ namespace Render360Video
                 ImageDisplay.Visibility = Visibility.Visible;
             }
         }
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -128,7 +130,7 @@ namespace Render360Video
             args.Add("height", Convert.ToInt32(HeightText.Text));
 
             //add selected lighting type from child of lighting grid ( use name)
-            args.Add("lighting", LightingGrid.Children.OfType<RadioButton>().FirstOrDefault(r => r.IsChecked == true).Name);
+            args.Add("lighting", GetSelectedLightingType());
 
             //convert  json  to string
             string jsonArgs = JsonConvert.SerializeObject(args);
@@ -193,7 +195,26 @@ namespace Render360Video
             };
         }
 
-     
+        private string GetSelectedLightingType()
+        {
+            // Iterate through each child of the LightingGrid
+            foreach (var child in LightingGrid.Children)
+            {
+                // Check if the child is a RadioButton
+                if (child is RadioButton radioButton)
+                {
+                    // Check if the RadioButton is checked
+                    if (radioButton.IsChecked == true)
+                    {
+                        // Return the Content of the RadioButton as string
+                        return radioButton.Content.ToString();
+                    }
+                }
+            }
+
+            // Return null or string.Empty if no RadioButton is selected
+            return string.Empty;
+        }
 
         private void UpdateUI(Action action)
         {
