@@ -27,7 +27,10 @@ Options:
 ------------------------------------------------------------------
 Example Output:
 
-https://github.com/zahiterdemguzel/3D-Model-Renderer-360-WPF-/assets/37737787/b3fe2ddb-097f-4b36-9a7f-9459bea71f63
+
+
+https://github.com/zahiterdemguzel/3D-Model-Renderer-360-WPF-/assets/37737787/c034e0b7-4959-43b5-ac4c-55628d0ece5e
+
 
 
 
