@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Render360Video"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Render 360" Height="385" Width="699"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanResize" WindowStyle="SingleBorderWindow" Icon="Resources/BlenderLogo.png"
+        >
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -51,10 +53,10 @@
             <!--numbers only-->
             <TextBox x:Name="WidthText" Grid.Column="0" Margin="5" Text="1024" TextAlignment="Center" MaxLines="1" VerticalAlignment="Stretch"
                      PreviewTextInput="AllowIntegerInput"/>
-            
+
             <TextBlock Grid.Column="1" Text="x" VerticalAlignment="Center"/>
 
-            
+
             <!--numbers only-->
             <TextBox x:Name="HeightText" Grid.Column="2"  Margin="5" Text="1024" TextAlignment="Center" MaxLines="1" VerticalAlignment="Stretch"
                       PreviewTextInput="AllowIntegerInput"/>
@@ -87,13 +89,13 @@
         <TextBlock Text="Duration (Seconds):" 
                    Grid.Row="5" Grid.Column="0"
                    VerticalAlignment="Center" Padding="0 0 10 0"/>
-        
+
         <!--numbers only-->
         <TextBox x:Name="DurationText" TextAlignment="Center"
                  VerticalAlignment="Stretch" MaxLines="1"
                  Grid.Row="5" Grid.Column="1" Margin="5" Text="5"
                   PreviewTextInput="AllowIntegerInput"/>
-        
+
         <TextBlock Text="FPS:" Grid.Row="6" Grid.Column="0" VerticalAlignment="Center"/>
         <ComboBox Name="FpsCombobox" Grid.Row="6" Grid.Column="1" 
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
@@ -154,7 +156,8 @@
         </Grid >
 
 
-        <StackPanel Grid.Column="2" Grid.Row="1"  Grid.RowSpan="7" Margin="4,4,4,4" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch" ClipToBounds="True">
+        <StackPanel Grid.Column="2" Grid.Row="1"  Grid.RowSpan="7"  
+                    Margin="4,4,4,4" VerticalAlignment="Center"  HorizontalAlignment="Center" ClipToBounds="False">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF8E8E8E"/>
@@ -162,18 +165,15 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
 
-       
+
             <!--<TextBlock Margin="4" HorizontalAlignment="Center" Foreground="#fff" Text="Preview" Grid.Row="0" Grid.Column="2"/>-->
 
-            <Grid Grid.Row="0" Grid.Column="2">
-                
-                <!--Media and Image--> 
-                <Image  x:Name="ImageDisplay" ClipToBounds="True" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"   />
-
-                <MediaElement x:Name="MediaElement"  Visibility="Hidden" ClipToBounds="True" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Uniform"  />
 
 
-            </Grid>
+            <MediaElement x:Name="MediaElement"  Visibility="Visible"/>
+                              <!--Source="Resources/VideoBuffer.mp4"-->
+
+
         </StackPanel>
 
         <Button Name="SaveOutputButton" Content="Save Output"  Margin="4"

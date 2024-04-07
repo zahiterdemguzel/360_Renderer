@@ -72,7 +72,7 @@ namespace Render360Video
                 };
 
                 //destroy image source because of permission errors
-                ImageDisplay.Source = null;
+                MediaElement.Source = null;
 
                 // Start the process
                 using (process = Process.Start(startInfo))
@@ -98,10 +98,8 @@ namespace Render360Video
 
                 image.EndInit();
 
-                // Set the image as the source of the ImageDisplay control
-                ImageDisplay.Source = image;
-                MediaElement.Visibility = Visibility.Hidden;
-                ImageDisplay.Visibility = Visibility.Visible;
+                // Set the image as the source of the MediaElement control
+                MediaElement.Source = image.UriSource;
             }
         }
 
@@ -185,8 +183,6 @@ namespace Render360Video
             //print the path
             Trace.WriteLine("Loading video from: " + path);
 
-            MediaElement.Visibility = Visibility.Visible;
-            ImageDisplay.Visibility = Visibility.Hidden;
 
             MediaElement.Source = new Uri(path, UriKind.Absolute);
             MediaElement.IsEnabled = true;
