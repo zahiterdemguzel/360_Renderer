@@ -188,14 +188,11 @@ namespace Render360Video
             MediaElement.IsEnabled = true;
             MediaElement.LoadedBehavior = MediaState.Manual;
             MediaElement.Play();
+            
+            //make it play forever when it ends
+            MediaElement.MediaEnded += (s, e) => MediaElement.Position = TimeSpan.Zero;
 
-
-            //auto loop, go back to beginning when end (zeg debug)
-            MediaElement.MediaEnded += (s, e) =>
-            {
-                MediaElement.Position = new TimeSpan(0, 0, 1);
-                MediaElement.Play();
-            };
+         
         }
 
         private string GetSelectedLightingType()

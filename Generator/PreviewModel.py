@@ -118,7 +118,8 @@ def set_latest_keyframe_to_frame(obj, frame_number):
                         keyframe_point.co.x += frame_difference
 
             # Set the scene's end frame to at least the specified frame number
-            bpy.context.scene.frame_end = max(bpy.context.scene.frame_end, frame_number)
+            bpy.context.scene.frame_end =  frame_number
+
             print(
                 f"Latest keyframe set to frame {frame_number}. Scene end frame set to {bpy.context.scene.frame_end}."
             )
@@ -274,9 +275,9 @@ if all(
     bpy.context.scene.render.filepath = "//../Resources/VideoBuffer.mp4"
     # render and save animation
     render_and_save(animation=True)
-    sys.exit(0)
+    # sys.exit(0)
 else:
     print("Photo Mode")
     # render and save single frame
     render_and_save(animation=False)
-    sys.exit(0)
+    # sys.exit(0)
