@@ -25,13 +25,18 @@ Options:
 -Quality (Low for EEVEE and medium or high for CYCLES render engine)
 
 ------------------------------------------------------------------
+Example Output:
 
+https://github.com/zahiterdemguzel/3D-Model-Renderer-360-WPF-/assets/37737787/b3fe2ddb-097f-4b36-9a7f-9459bea71f63
+
+
+
+----------------------------------------------------------------------
 XAML Interface:
 
 ![image](https://github.com/zahiterdemguzel/3D-Model-Renderer-360-WPF-/assets/37737787/826cee20-7767-49ea-b4bc-f733b7e21948)
 
 
-----------------------------------------------------------------------
 
 XAML Hıerarchy:
 
